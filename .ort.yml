@@ -41,6 +41,10 @@ excludes:
     reason: "DEV_DEPENDENCY_OF"
     comment: "Packages for development only."
 
+  - pattern: "Jinja2-2.10.1/ext/jinja.el"
+    reason: "OPTIONAL_COMPONENT_OF"
+    comment: "The path only contains optional components for the code that is built which are not included in distributed build artifacts."
+
 resolutions:
   rule_violations:
     - message: "copyleft-strong license GPL-2.0-or-later in PyPI::jinja2:2.10.1."
