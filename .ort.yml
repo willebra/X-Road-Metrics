@@ -46,3 +46,26 @@ resolutions:
     - message: ".*CC-BY-SA-4.0 in Unmanaged::X-Road-Metrics:.*"
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "The files meant by this license hit are not distributed with X-Road Metrics."
+
+  vulnerabilities:
+    - id: "GHSA-933h-hp56-hf7m"
+      reason: "INEFFECTIVE_VULNERABILITY"
+      comment: "CVE-2026-33034: Django DATA_UPLOAD_MAX_MEMORY_SIZE bypass affects only ASGI
+        deployments. X-Road-Metrics uses WSGI exclusively (opendata_module/usr/wsgi.py uses
+        get_wsgi_application(); no asgi.py exists and no ASGI server such as uvicorn or
+        daphne is present in requirements). The vulnerability condition does not apply."
+
+    - id: "GHSA-mvfq-ggxm-9mc5"
+      reason: "INEFFECTIVE_VULNERABILITY"
+      comment: "CVE-2026-3902: Django ASGIRequest header spoofing affects only ASGI
+        deployments. X-Road-Metrics uses WSGI exclusively (opendata_module/usr/wsgi.py uses
+        get_wsgi_application(); no asgi.py exists and no ASGI server such as uvicorn or
+        daphne is present in requirements). The vulnerability condition does not apply."
+
+    - id: "GHSA-whj4-6x5x-4v2j"
+      reason: "INEFFECTIVE_VULNERABILITY"
+      comment: "CVE-2026-40192: Pillow FITS decompression bomb is only exploitable when
+        opening attacker-controlled FITS image files. X-Road-Metrics uses Pillow
+        indirectly via matplotlib solely for embedding PNG logos in PDF reports
+        (reports_module/opmon_reports/constants.py). No FITS image processing occurs
+        anywhere in the codebase."
