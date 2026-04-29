@@ -39,13 +39,203 @@ resolutions:
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "Font files that are not modified, hence license acquired."
 
-    - message: "free-restricted license Bitstream-Vera in PyPI::matplotlib:.*"
-      reason: "LICENSE_ACQUIRED_EXCEPTION"
-      comment: "Font files that are not modified, hence license acquired."
-
     - message: ".*CC-BY-SA-4.0 in Unmanaged::X-Road-Metrics:.*"
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "The files meant by this license hit are not distributed with X-Road Metrics."
+
+    # --- Pillow: Bitstream-Vera fonts in test infrastructure ---
+    - message: "free-restricted license Bitstream-Vera in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "The Bitstream-Vera/DejaVu font files in pillow's Tests/ directory are
+        unmodified originals. The Bitstream-Vera license permits redistribution with
+        software provided the fonts are not sold standalone and derivative fonts bear
+        different names. Both conditions are satisfied: the fonts are bundled as-is in
+        test infrastructure only and are not renamed or sold."
+
+    # --- Pyphen: hyphenation dictionary licenses ---
+    # Pyphen is tri-licensed GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1.
+    # X-Road-Metrics uses it under LGPL-2.1-or-later. The dictionary files bundled
+    # in pyphen carry various copyleft and other licenses from their upstream sources
+    # (LibreOffice/OpenOffice hyphenation dictionaries). These dictionaries are used
+    # server-side for hyphenation in PDF report generation and are not redistributed
+    # to end users of X-Road-Metrics.
+    - message: "copyleft-strong license GPL-2.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "Pyphen is tri-licensed GPL-2.0-or-later OR LGPL-2.1-or-later OR MPL-1.1.
+        X-Road-Metrics uses pyphen under the LGPL-2.1-or-later option. The
+        GPL-2.0-or-later finding reflects the declared tri-license; LGPL-2.1-or-later
+        is the operative license. Additionally, GPL-2.0-or-later is detected in
+        hyphenation dictionary data files (e.g., hyph_ro_RO.dic). These dictionaries
+        are used server-side and not redistributed to end users."
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-2.0-only is detected in hyphenation dictionary data files bundled
+        with pyphen. The dictionaries are used server-side for PDF report hyphenation
+        and are not redistributed to end users of X-Road-Metrics."
+
+    - message: "copyleft-strong license GPL-1.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-1.0-or-later is detected in hyphenation dictionary README files
+        bundled with pyphen (e.g., README_hyph_ro_RO.txt, README_hyph_pt_PT.txt).
+        The dictionaries are used server-side and not redistributed to end users."
+
+    - message: "copyleft-strong license GPL-3.0-only in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-only is detected in the Galician hyphenation dictionary
+        (README_hyph_gl.txt). The dictionary is used server-side and not redistributed
+        to end users of X-Road-Metrics."
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-or-later is detected in the Catalan hyphenation dictionary
+        (hyph_ca.dic). The dictionary is used server-side and not redistributed
+        to end users of X-Road-Metrics."
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "CC-BY-SA-3.0 is detected in the Icelandic hyphenation dictionary
+        (README_hyph_is.txt). The dictionary files are used server-side for
+        hyphenation in PDF report generation and are not redistributed to end users.
+        The CC-BY-SA share-alike obligation applies only to redistribution."
+
+    - message: "copyleft-strong license CC-BY-SA-4.0 in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "CC-BY-SA-4.0 is detected in the Belarusian hyphenation dictionary
+        (README_hyph_be_BY.txt, hyph_be_BY.dic). The dictionary files are used
+        server-side and not redistributed to end users. The CC-BY-SA share-alike
+        clause is not triggered by server-side use."
+
+    - message: "copyleft-strong license LPPL-1.3c in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "LPPL-1.3c is detected in the Mongolian hyphenation dictionary
+        (hyph_mn_MN.dic). The file is used unmodified, satisfying LPPL-1.3c's
+        requirement that modifications be clearly marked. The license is found
+        acceptable for server-side use without redistribution."
+
+    - message: "copyleft-strong license LicenseRef-scancode-other-copyleft in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "LicenseRef-scancode-other-copyleft is detected in hyphenation dictionary
+        data files (e.g., hyph_zu_ZA.dic). The scanner could not identify the specific
+        copyleft license. The dictionary files are used server-side and not redistributed
+        to end users. Manual review of the specific files is recommended as follow-up."
+
+    - message: "proprietary-free license SISSL in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "SISSL (Sun Industry Standards Source License) is detected in the Czech
+        hyphenation dictionary metadata (README_hyph_cs_CZ.txt). SISSL requires
+        publication of changes upon distribution. The dictionary file is used
+        unmodified; the change-publication requirement does not apply to unmodified use."
+
+    # --- numpy: vendored Meson build system and documentation files ---
+    # numpy vendors the Meson build system source (vendored-meson/meson/) to enable
+    # building numpy from source. Meson is dual-licensed Apache-2.0 OR GPL-2.0-or-later
+    # (https://mesonbuild.com/FAQ.html#how-is-meson-licensed). numpy uses the vendored
+    # Meson files under the Apache-2.0 option. GPL-1.0-or-later, GPL-2.0-only, and
+    # GPL-3.0-or-later appear in Meson test-case fixtures, Meson documentation files,
+    # and numpy changelog/doc files as incidental license text.
+    - message: "copyleft-strong license GPL-2.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-2.0-or-later is detected in numpy's vendored Meson build system source
+        files (vendored-meson/meson/). Meson is dual-licensed Apache-2.0 OR GPL-2.0-or-later.
+        Under the dual-license option (§4.6, von Willebrand & Partanen, JOLTS vol. 2 no. 1,
+        pp. 39-60 (2010)), the licensee may choose either license; the Apache-2.0 option is
+        operative for numpy's use. The vendored Meson files are build infrastructure only
+        and are not distributed as part of numpy's installed runtime."
+
+    - message: "copyleft-strong license GPL-1.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-1.0-or-later is detected in Meson test-case fixture files vendored by
+        numpy (vendored-meson/meson/test cases/). These files are test fixtures for Meson's
+        own build-system test suite and serve as build infrastructure. They are not part of
+        numpy's installed runtime. Meson's main source is dual-licensed Apache-2.0 OR
+        GPL-2.0-or-later; individual test fixtures may carry GPL variants used for testing
+        Meson's license-handling features."
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-2.0-only is detected in (a) Meson documentation files vendored by numpy
+        (vendored-meson/meson/docs/) that carry Meson's GPL-2.0-or-later license, and (b)
+        numpy's doc/changelog/ files where it appears as incidental license text within the
+        eCos-exception-2.0 compound expression from dependency change notes. None of these
+        files are part of numpy's installed runtime; the vendored Meson files are used under
+        the Apache-2.0 option of Meson's dual license."
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-or-later (without GCC exception) is detected in vendored Meson files
+        (vendored-meson/meson/) that contain SPDX license identifier lists or format-test
+        data where GPL-3.0-or-later identifiers appear alongside GCC-exception variants. The
+        complex scanner expressions (e.g. 'GPL-3.0-or-later AND GPL-3.0-or-later WITH
+        GCC-exception-3.1') indicate the scanner found the base identifier within SPDX list
+        data, not as a standalone governing license. These files are vendored build
+        infrastructure not distributed as part of numpy's installed runtime."
+
+    - message: "copyleft-strong license CC-BY-SA-4.0 in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "CC-BY-SA-4.0 is detected in (a) numpy/random/src/mt19937/randomkit.h where
+        it appears alongside Apache-2.0 and CC0-1.0 as incidental scanner-detected text
+        (the Mersenne Twister RNG source is BSD/Apache-licensed; the CC-BY-SA-4.0 detection
+        is a false positive from a comment or nearby text in the file), and (b)
+        vendored-meson/meson/docs/markdown/legal.md which carries Meson's own documentation
+        license. The Meson legal.md file is part of build infrastructure not distributed
+        with numpy's installed runtime. The CC-BY-SA share-alike clause applies only to
+        redistribution of derivative works; neither case involves such redistribution."
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "CC-BY-SA-3.0 is detected in doc/source/_static/scipy-mathjax/extensions/TeX/
+        noUndefined.js, a MathJax JavaScript extension bundled in numpy's documentation
+        source tree for rendering mathematical notation. This file is used only when building
+        numpy's documentation and is not part of numpy's installed runtime package. The
+        CC-BY-SA share-alike obligation applies only to redistribution of derivative works;
+        the file is used unmodified for documentation rendering only."
+
+    # --- pillow: test fonts and ICC color profile license ---
+    # Pillow bundles GNU FreeFont (GPL-3.0-or-later WITH Font-exception-2.0) in its
+    # Tests/fonts/ directory and the sRGB ICC color profile in Tests/icc/. These are
+    # test infrastructure files not distributed as part of Pillow's installed runtime.
+    - message: "proprietary-free license LicenseRef-scancode-srgb in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "LicenseRef-scancode-srgb is detected in Tests/icc/LICENSE.txt, the license
+        file for the sRGB ICC color profile used as test data. The sRGB ICC profile license
+        (International Color Consortium) permits free use provided the profile is not
+        modified and attribution is preserved. The profile is used unmodified as test
+        infrastructure only and is not redistributed to end users of Pillow."
+
+    - message: "copyleft-strong license GPL-3.0-or-later WITH Font-exception-2.0 in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-or-later WITH Font-exception-2.0 is detected in Tests/fonts/FreeMono.ttf
+        (GNU FreeFont) and listed in Tests/fonts/LICENSE.txt. The GPL Font Exception 2.0
+        explicitly permits the font to be used, embedded, and redistributed alongside
+        non-GPL software without triggering GPL copyleft, provided the font itself remains
+        under the same terms. These fonts are test infrastructure only and are not
+        distributed as part of Pillow's installed runtime."
+
+    - message: "copyleft-strong license GPL-3.0-only WITH Font-exception-2.0 in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-only WITH Font-exception-2.0 is detected in Tests/fonts/LICENSE.txt,
+        which lists this license for certain fonts in Pillow's test suite. The GPL Font
+        Exception 2.0 permits the font to be used and redistributed alongside non-GPL
+        software. These fonts are test infrastructure only and are not distributed as part
+        of Pillow's installed runtime."
+
+    - message: "copyleft-strong license GPL-3.0-only in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-only is detected in Tests/fonts/LICENSE.txt, which lists the licenses
+        for multiple fonts bundled in Pillow's test suite. The GPL-3.0-only base identifier
+        appears alongside Font-exception-2.0 entries for the same fonts; the font exception
+        addresses the copyleft concern. These fonts are test infrastructure only and are not
+        distributed as part of Pillow's installed runtime."
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GPL-3.0-or-later is detected in Tests/fonts/FreeMono.ttf (GNU FreeFont,
+        GPL-3.0-or-later WITH Font-exception-2.0). The scanner also emits the base
+        GPL-3.0-or-later identifier separately from the full WITH-exception expression.
+        The GPL Font Exception 2.0 addresses the copyleft concern; see the
+        'GPL-3.0-or-later WITH Font-exception-2.0' resolution above. The font is test
+        infrastructure only and is not distributed as part of Pillow's installed runtime."
 
   vulnerabilities:
     - id: "GHSA-933h-hp56-hf7m"
