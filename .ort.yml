@@ -19,6 +19,11 @@ excludes:
 
 resolutions:
   rule_violations:
+
+    # -----------------------------------------------------------------------
+    # Existing resolutions
+    # -----------------------------------------------------------------------
+
     - message: "copyleft-strong license GPL-2.0-or-later in PyPI::jinja2:.*"
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "The files meant by this license hit are not in use in X-Road-Metrics."
@@ -39,10 +44,221 @@ resolutions:
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "Font files that are not modified, hence license acquired."
 
-    - message: "free-restricted license Bitstream-Vera in PyPI::matplotlib:.*"
-      reason: "LICENSE_ACQUIRED_EXCEPTION"
-      comment: "Font files that are not modified, hence license acquired."
-
     - message: ".*CC-BY-SA-4.0 in Unmanaged::X-Road-Metrics:.*"
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "The files meant by this license hit are not distributed with X-Road Metrics."
+
+    # -----------------------------------------------------------------------
+    # Pillow — sRGB ICC profile, Bitstream-Vera fonts, and GPL font files
+    # present in sdist Tests/ but not in the installed wheel
+    # -----------------------------------------------------------------------
+
+    - message: "proprietary-free license LicenseRef-scancode-srgb in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        The sRGB ICC profile (IEC61966-2.1) in Pillow's sdist (Tests/) genuinely carries the ICC
+        sRGB color profile license. The profile is used only in test images and is not distributed
+        in the installed wheel.
+
+    - message: "free-restricted license Bitstream-Vera in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        Bitstream-Vera font files in Pillow's sdist test suite (Tests/fonts/) are genuinely under
+        the Bitstream-Vera license. They are not distributed in the installed wheel. The fonts are
+        unmodified, satisfying the Bitstream-Vera license conditions.
+
+    - message: "copyleft-strong license GPL-3.0-or-later WITH Font-exception-2.0 in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL+Font-exception-2.0 font files (Free Font Project — FreeMono, FreeSerif, FreeSans) are
+        genuinely under this license in Pillow's sdist test suite (Tests/fonts/); not distributed in
+        the installed wheel. The Font Exception explicitly permits use of these fonts without
+        copyleft spreading to the containing software.
+
+    - message: "copyleft-strong license GPL-3.0-only WITH Font-exception-2.0 in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL+Font-exception-2.0 font files are genuinely under this license in Pillow's sdist test
+        suite; not in the installed wheel. The Font Exception applies.
+
+    - message: "copyleft-strong license GPL-1.0-or-later in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed font and test files in Pillow genuinely carry this license in the sdist test
+        suite (Tests/). They are not distributed in the installed wheel.
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed font and test files in Pillow genuinely carry this license in the sdist test
+        suite (Tests/). They are not distributed in the installed wheel.
+
+    - message: "copyleft-strong license GPL-3.0-only in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed font and test files in Pillow genuinely carry this license in the sdist test
+        suite (Tests/). They are not distributed in the installed wheel.
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::pillow:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed font and test files in Pillow genuinely carry this license in the sdist test
+        suite (Tests/). They are not distributed in the installed wheel.
+
+    # -----------------------------------------------------------------------
+    # pyphen — copyleft hyphenation dictionary files; genuinely present in the
+    # installed package. pyphen is LGPL-2.1-or-later; dictionaries distributed
+    # unmodified.
+    # -----------------------------------------------------------------------
+
+    - message: "copyleft-strong license GPL-2.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed hyphenation dictionaries are data files genuinely under this license,
+        distributed with pyphen. pyphen itself is LGPL-2.1-or-later; the dictionary files are
+        distributed unmodified, satisfying GPL redistribution terms.
+
+    - message: "copyleft-strong license GPL-1.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed hyphenation dictionaries are data files genuinely under this license,
+        distributed with pyphen. pyphen is LGPL-2.1-or-later. The dictionary files are distributed
+        unmodified.
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed hyphenation dictionaries are data files genuinely under this license,
+        distributed with pyphen. pyphen is LGPL-2.1-or-later. The dictionary files are distributed
+        unmodified.
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed hyphenation dictionaries are data files genuinely under this license,
+        distributed with pyphen. pyphen is LGPL-2.1-or-later. The dictionary files are distributed
+        unmodified.
+
+    - message: "copyleft-strong license GPL-3.0-only in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-licensed hyphenation dictionaries are data files genuinely under this license,
+        distributed with pyphen. pyphen is LGPL-2.1-or-later. The dictionary files are distributed
+        unmodified.
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-3.0-licensed hyphenation dictionaries are data files genuinely under this license
+        in pyphen. Attribution is provided via the README files bundled with each dictionary.
+        CC-BY-SA on data content does not impose software copyleft on X-Road-Metrics.
+
+    - message: "copyleft-strong license CC-BY-SA-4.0 in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-4.0-licensed hyphenation dictionaries are data files genuinely under this license
+        in pyphen. Attribution is provided via bundled README files. CC-BY-SA on data content does
+        not impose software copyleft on X-Road-Metrics.
+
+    - message: "copyleft-strong license LPPL-1.3c in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        LPPL-1.3c-licensed hyphenation dictionaries are TeX-derived pattern files genuinely under
+        this license in pyphen. LPPL-1.3c permits redistribution of unmodified files. These
+        dictionary files are distributed unchanged.
+
+    - message: "copyleft-strong license LicenseRef-scancode-other-copyleft in PyPI::pyphen:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        LicenseRef-scancode-other-copyleft in pyphen refers to a hyphenation dictionary file
+        genuinely carrying an unclassified copyleft-style license. The dictionary is data content
+        distributed as-is without modification.
+
+    # -----------------------------------------------------------------------
+    # numpy — vendored meson-python build sources and test data in sdist;
+    # genuinely under these licenses but not included in the installed wheel
+    # -----------------------------------------------------------------------
+
+    - message: "copyleft-strong license GPL-2.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-2.0-or-later files in numpy (vendored meson-python build system sources or test data
+        in the sdist) are genuinely under this license but are not included in the installed wheel.
+
+    - message: "copyleft-strong license GPL-1.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-1.0-or-later files in numpy (vendored build system sources or test data in the sdist)
+        are genuinely under this license but are not included in the installed wheel.
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-2.0-only files in numpy (vendored build system sources or test data in the sdist) are
+        genuinely under this license but are not included in the installed wheel.
+
+    - message: "copyleft-strong license GPL-3.0-or-later in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        GPL-3.0-or-later files in numpy (vendored build system sources or test data in the sdist)
+        are genuinely under this license but are not included in the installed wheel.
+
+    - message: "copyleft-strong license CC-BY-SA-4.0 in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-4.0 files in numpy are documentation or test data genuinely under this license in
+        the sdist but not included in the installed wheel.
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::numpy:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-3.0 files in numpy are documentation or test data genuinely under this license in
+        the sdist but not included in the installed wheel.
+
+    # -----------------------------------------------------------------------
+    # fonttools — CC-BY-SA documentation files genuinely present in sdist
+    # (Doc/) but not in the installed wheel
+    # -----------------------------------------------------------------------
+
+    - message: "copyleft-strong license CC-BY-SA-4.0 in PyPI::fonttools:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-4.0 documentation source files in fonttools (Doc/) are genuinely under this
+        license in the sdist but are not included in the installed wheel.
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::fonttools:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        CC-BY-SA-3.0 documentation source files in fonttools (Doc/) are genuinely under this
+        license in the sdist but are not included in the installed wheel.
+
+    # -----------------------------------------------------------------------
+    # charset-normalizer — CC-BY-SA Wikipedia attribution in NOTICE.md;
+    # genuinely present but not installed with the library
+    # -----------------------------------------------------------------------
+
+    - message: "copyleft-strong license CC-BY-SA-3.0 in PyPI::charset-normalizer:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        NOTICE.md in charset-normalizer genuinely carries CC-BY-SA-3.0 attribution for
+        Wikipedia-derived test data. This file is not installed with the library; the Wikipedia
+        content is test-only and not distributed in the wheel.
+
+    # -----------------------------------------------------------------------
+    # matplotlib — GPL from FreeType build files genuinely present in sdist
+    # subprojects/; build-only files not installed with the wheel
+    # -----------------------------------------------------------------------
+
+    - message: "copyleft-strong license GPL-2.0-or-later in PyPI::matplotlib:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        FreeType library source files in matplotlib's sdist (subprojects/) are genuinely
+        GPL-2.0-or-later licensed (dual-licensed FTL/GPL). These are build-only files used to
+        compile the FreeType extension and are not installed with the matplotlib wheel.
+
+    - message: "copyleft-strong license GPL-2.0-only in PyPI::matplotlib:.*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: >
+        FreeType library source files in matplotlib's sdist (subprojects/) are genuinely
+        GPL-2.0-only licensed. These are build-only files and are not installed with the
+        matplotlib wheel.
