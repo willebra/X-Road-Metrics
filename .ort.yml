@@ -46,3 +46,19 @@ resolutions:
     - message: ".*CC-BY-SA-4.0 in Unmanaged::X-Road-Metrics:.*"
       reason: "LICENSE_ACQUIRED_EXCEPTION"
       comment: "The files meant by this license hit are not distributed with X-Road Metrics."
+
+    - message: "free-restricted license Bitstream-Vera in PyPI::pillow:12\\.[0-9]+\\..*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "DejaVu Sans test fonts under Tests/fonts/DejaVuSans/ (Bitstream Vera / Arev licence) that are not modified, hence license acquired."
+
+    - message: "copyleft-strong license GPL-3\\.0-or-later WITH Font-exception-2\\.0 in PyPI::pillow:12\\.[0-9]+\\..*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "GNU FreeFont test font Tests/fonts/FreeMono.ttf (GPL-3.0-or-later with the font exception) that is not modified, hence license acquired."
+
+    - message: "copyleft-strong license CC-BY-SA-3\\.0 in PyPI::numpy:2\\.[0-9]+\\..*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "Documentation (NumPy enhancement proposal doc/neps/nep-0012-missing-data.rst) that is not modified; the share-alike condition applies only to adaptations, hence license acquired."
+
+    - message: "copyleft-strong license CC-BY-SA-3\\.0 in PyPI::fonttools:4\\.[0-9]+\\..*"
+      reason: "LICENSE_ACQUIRED_EXCEPTION"
+      comment: "Documentation (Google Style Guide examples quoted in Doc/README.md) that is not modified; the share-alike condition applies only to adaptations, hence license acquired."
